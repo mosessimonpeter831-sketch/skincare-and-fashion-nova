@@ -1,0 +1,6 @@
+{
+  "name": "NAOVA — Skincare & Fashion",
+  "description": "Luxury skincare essentials, contemporary fashion collections, and elevated beauty rituals crafted for modern living.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
