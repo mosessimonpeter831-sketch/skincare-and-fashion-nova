@@ -2,6 +2,7 @@ import { Product } from '../types';
 
 export const ASSETS = {
   heroCampaign: '/src/assets/images/naova_hero_campaign_1792240922588.jpg',
+  cinematicAtelier: '/src/assets/images/naova_cinematic_atelier_1792242751327.jpg',
   skincareBottle: '/src/assets/images/naova_skincare_bottle_1792240923541.jpg',
   fashionEditorial: '/src/assets/images/naova_fashion_editorial_1792240923463.jpg',
   brandStory: '/src/assets/images/naova_brand_story_1792240923272.jpg',

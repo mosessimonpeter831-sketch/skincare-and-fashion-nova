@@ -4,7 +4,7 @@ import { ASSETS, PRODUCTS } from '../data/products';
 import { ArrowRight, Sparkles, MoveRight } from 'lucide-react';
 
 export const FashionCollectionSection: React.FC = () => {
-  const { navigateToCategory, navigateToProduct } = useStore();
+  const { navigateToCategory, navigateToProduct, isAiActive } = useStore();
 
   const fashionPicks = [
     { label: 'New Arrivals', filter: 'fashion', product: PRODUCTS[1], count: 'Autumn/Winter' },
@@ -59,6 +59,17 @@ export const FashionCollectionSection: React.FC = () => {
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20" />
+
+            {/* AI Active Optical Scanline on Lookbook */}
+            {isAiActive && (
+              <>
+                <div className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A880] to-transparent shadow-[0_0_12px_rgba(197,168,128,0.9)] animate-scanline pointer-events-none" />
+                <div className="absolute top-20 right-6 z-10 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-[#C5A880]/40 text-[10px] font-mono text-[#EDE7DC]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880] animate-pulse" />
+                  <span>AI TEXTILE OPTIC: VIRGIN WOOL 120S · FLUIDITY 9.8</span>
+                </div>
+              </>
+            )}
 
             <div className="relative z-10 flex items-center justify-between">
               <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">

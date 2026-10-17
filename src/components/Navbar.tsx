@@ -13,7 +13,9 @@ export const Navbar: React.FC = () => {
     setIsWishlistOpen,
     setIsSearchOpen,
     setIsOrderTrackingOpen,
-    setIsAboutOpen
+    setIsAboutOpen,
+    isAiActive,
+    toggleAiActive
   } = useStore();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -135,6 +137,25 @@ export const Navbar: React.FC = () => {
               >
                 <Package className="w-5 h-5" />
                 <span className="hidden xl:inline text-[#78716C]">Orders</span>
+              </button>
+
+              {/* AI Active Vision Toggle */}
+              <button
+                onClick={toggleAiActive}
+                className={`hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border text-[11px] font-mono tracking-wider transition-all ${
+                  isAiActive
+                    ? 'bg-[#1C1917] text-[#EDE7DC] border-[#8A6A4E] shadow-xs'
+                    : 'bg-stone-100 text-stone-500 border-stone-300 hover:text-stone-800'
+                }`}
+                title={isAiActive ? 'AI Vision active: Optical scanning enabled' : 'AI Vision paused'}
+                aria-label="Toggle AI Active Vision"
+              >
+                <span
+                  className={`w-2 h-2 rounded-full ${
+                    isAiActive ? 'bg-[#C5A880] animate-pulse' : 'bg-stone-400'
+                  }`}
+                />
+                <span className="font-semibold">{isAiActive ? 'AI ACTIVE' : 'AI STANDBY'}</span>
               </button>
 
               {/* Wishlist Icon with count */}

@@ -7,6 +7,7 @@ import { TheNaovaEdit } from './components/TheNaovaEdit';
 import { BrandStorySection } from './components/BrandStorySection';
 import { SkincareExperienceSection } from './components/SkincareExperienceSection';
 import { FashionCollectionSection } from './components/FashionCollectionSection';
+import { AiStudioSection } from './components/AiStudioSection';
 import { PromotionalBanner } from './components/PromotionalBanner';
 import { TestimonialsAndTrust } from './components/TestimonialsAndTrust';
 import { NewsletterSection } from './components/NewsletterSection';
@@ -42,6 +43,7 @@ const MainLayout: React.FC = () => {
             <BrandStorySection />
             <SkincareExperienceSection />
             <FashionCollectionSection />
+            <AiStudioSection />
             <PromotionalBanner />
             <TestimonialsAndTrust />
             <NewsletterSection />

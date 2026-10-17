@@ -20,6 +20,14 @@ interface StoreContextType {
   discountCode: string | null;
   discountPercent: number;
   isFreeShippingCode: boolean;
+
+  // AI Active Vision & Cinematic State
+  isAiActive: boolean;
+  toggleAiActive: () => void;
+  isCinematicPlaying: boolean;
+  toggleCinematicPlaying: () => void;
+  activeCinematicScene: number;
+  setActiveCinematicScene: (scene: number) => void;
   
   // Modals & Drawers
   isCartOpen: boolean;
@@ -150,6 +158,27 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [activeProduct, setActiveProduct] = useState<Product | null>(PRODUCTS[0]);
   const [activeCategoryFilter, setActiveCategoryFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+  // AI Active Vision & Cinematic State
+  const [isAiActive, setIsAiActive] = useState<boolean>(true);
+  const [isCinematicPlaying, setIsCinematicPlaying] = useState<boolean>(true);
+  const [activeCinematicScene, setActiveCinematicScene] = useState<number>(0);
+
+  const toggleAiActive = () => {
+    setIsAiActive((prev) => {
+      const next = !prev;
+      showToast(next ? 'AI Active Vision & Optical Scan: Enabled' : 'AI Active Vision: Paused', 'info');
+      return next;
+    });
+  };
+
+  const toggleCinematicPlaying = () => {
+    setIsCinematicPlaying((prev) => {
+      const next = !prev;
+      showToast(next ? 'Cinematic Motion: Resumed' : 'Cinematic Motion: Paused', 'info');
+      return next;
+    });
+  };
 
   // Drawers & Modals
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -437,6 +466,13 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         discountCode,
         discountPercent,
         isFreeShippingCode,
+
+        isAiActive,
+        toggleAiActive,
+        isCinematicPlaying,
+        toggleCinematicPlaying,
+        activeCinematicScene,
+        setActiveCinematicScene,
 
         isCartOpen,
         isWishlistOpen,
